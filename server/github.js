@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || 'GITHUB TOKEN PLEASE';
 const GITHUB_BASE = 'https://api.github.com'
 
 function getQueryString(params) {
@@ -29,7 +29,7 @@ function getGithubQueryString(params) {
 function searchIssues(q) {
   q = q || {
     label: 'bug',
-    repo: 'tactivos/native-ios',
+    repo: 'tactivos/murally',
     state: 'open',
   };
   const params = { q: getGithubQueryString(q) };

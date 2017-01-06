@@ -14,7 +14,7 @@ app.get('/user', (req, res) => {
 });
 
 app.get('/issues', (req, res) => {
-  github.searchIssues().then(user => {
+  github.searchIssues({ label: req.query.filter || 'bug', repo: 'tactivos/native-ios', state: 'open' }).then(user => {
     res.send(user);
   });
 });
